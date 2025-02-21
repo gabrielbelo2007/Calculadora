@@ -3,13 +3,11 @@ function criaCalculadora() {
         display: document.querySelector('.display'),
 
         inicia() {
-            // Para chamar uma chave(nesse caso metodo) do objeto dentro de outro, usar this
             this.cliqueBotoes();
             this.pressionaTeclas();
         },
 
         pressionaTeclas() {
-            // arrow function -> para manter o this = calculadora
             document.addEventListener('keyup', (e) => {
                 const idTecla = e.key;
 
@@ -28,9 +26,7 @@ function criaCalculadora() {
         },
 
         cliqueBotoes() {
-            // this -> calculadora
             document.addEventListener('click', function(e) {
-                // this -> document
                 const idBotao = e.target;
 
                 if(idBotao.classList.contains('btn-num')) {
@@ -51,8 +47,7 @@ function criaCalculadora() {
 
                 this.display.focus();
 
-            }.bind(this)) // mudou o this -> document, para this -> calculadora;
-            // se usar uma arrow function o this, nao se altera, mantem this -> calculadora
+            }.bind(this))
         },
 
         btnParaDisplay(valor) {
@@ -60,7 +55,6 @@ function criaCalculadora() {
         },
 
         realizaConta() {
-            // eval -> avalia o input e tenta executar CUIDADO!!
             let conta = this.display.value;
 
             try {
