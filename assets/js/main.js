@@ -10,18 +10,18 @@ function criaCalculadora() {
         pressionaTeclas() {
             document.addEventListener('keyup', (e) => {
                 const idTecla = e.key;
+                const teclas = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "/", "*", "+", "-", "(", ")", "."];
 
                 if (idTecla === "Enter") {
                     this.realizaConta();
-                }
-
-                if (idTecla === "Backspace") {
+                } else if (idTecla === "Backspace") {
                     this.apagaUm();
+                } else if (idTecla === "Delete") {
+                    this.clearDisplay();
+                } else if (teclas.includes(idTecla)) {
+                    this.btnParaDisplay(idTecla);
                 }
 
-                if (idTecla === "Delete") {
-                    this.clearDisplay();
-                }
             });
         },
 
